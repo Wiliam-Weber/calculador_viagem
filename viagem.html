@@ -1,0 +1,105 @@
+<html lang="pt-br">
+<head>
+   <meta name="description" content="Atividade desenvolvida no curso de BSN - UNIDAVI - 2/2023">
+   <meta name="author" content="Wiliam Mateus Weber">
+    <title>Calculadora de Viagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('dw-viagens.png');
+            background-size: cover;
+            padding: 20px;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            padding: 10px;
+            font-size: 17px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        .resultado {
+            color: #000000; 
+            font-weight:bold; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Calculadora de Viagem</h1>
+    <div class="input-group">
+        <label for="nome">Nome da viagem:</label>
+        <input type="text" id="nome" required>
+    </div>
+    <div class="input-group">
+        <label for="km">Quilômetros percorridos:</label>
+        <input type="number" id="km" required>
+    </div>
+    <div class="input-group">
+        <label for="litros">Litros de combustível gastos:</label>
+        <input type="number" id="litros" required>
+    </div>
+    <div class="input-group">
+        <label for="valor">Valor por litro de combustível:</label>
+        <input type="number" id="valor" required>
+    </div>
+    <button onclick="calcular()">Calcular</button>
+
+    <h2>Resultados:</h2>
+    <p id="autonomia"></p>
+    <p id="valor-viagem"></p>
+    <p id="valor-km"></p>
+    </div>
+
+<script>
+    
+    function calcular() {
+    var nome = document.getElementById('nome').value;
+    var km = document.getElementById('km').value;
+    var litros = document.getElementById('litros').value;
+    var valor = document.getElementById('valor').value;
+
+    var autonomia = km / litros;
+    var valorViagem = litros * valor;
+    var valorKm = valorViagem / km;
+
+    document.getElementById('autonomia').textContent = 'Autonomia (km/l): ' + autonomia.toFixed(2);
+    document.getElementById('valor-viagem').textContent = 'Valor da viagem: R$ ' + valorViagem.toFixed(2);
+    document.getElementById('valor-km').textContent = 'Valor por quilômetro: R$ ' + valorKm.toFixed(2);
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
